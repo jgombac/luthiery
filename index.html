@@ -11,10 +11,11 @@
 
     <div id="app">
 
-        <div class="img-container" v-for="(image, index) in images" v-bind:class="{ left: isLeft(index) }" @mouseover="mouseOver(index)" @mouseleave="mouseLeave">
+        <div class="img-container" v-for="(image, index) in images" v-bind:class="{ left: isLeft(index) }"  @mouseov="mouseOver(index)" @mouseleave="mouseLeave">
             <img :src="getPath(image.name)" alt="">
+            <span class="img-caption" v-bind:class="{ dark: isDark(index), light: isLight(index) }"  @click="onClick(index)">{{ image.caption }}</span>
             <span class="img-content" v-bind:class="{ dark: isDark(index), light: isLight(index), left: isLeft(index) }">
-                {{ image.name }}
+                {{ image.caption }}
             </span>
         </div>
 
